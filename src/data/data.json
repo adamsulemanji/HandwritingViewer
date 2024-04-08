@@ -61,21 +61,21 @@
         "grade": "A",
         "objects": [
             {
-                "file_path": "/data/student_3/object_1.txt",
+                "file_path": "./images/headshot.png",
                 "date": "2024-04-02",
                 "number_of_strokes": 110,
                 "time_taken": "3 minutes",
                 "teacher": "Teacher 2"
             },
             {
-                "file_path": "/data/student_3/object_2.txt",
+                "file_path": "./images/teach.jpeg",
                 "date": "2024-04-03",
                 "number_of_strokes": 120,
                 "time_taken": "4 minutes",
                 "teacher": "Teacher 3"
             },
             {
-                "file_path": "/data/student_3/object_3.txt",
+                "file_path": "./images/headshot.png",
                 "date": "2024-04-04",
                 "number_of_strokes": 130,
                 "time_taken": "5 minutes",
