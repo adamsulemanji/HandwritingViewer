@@ -6,8 +6,6 @@ function HandwritingStats({ data }) {
   const bgColor = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'white');
 
-  const [showImages, setShowImages] = useState(false);
-
   if (data.length === 0) {
     return (
       <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
@@ -19,8 +17,12 @@ function HandwritingStats({ data }) {
   const handwritingSession = data[0]; // Assuming data contains only one handwriting session
   const { file_path, date, number_of_strokes, time_taken, teacher, writings } = handwritingSession;
 
-  const toggleImages = () => {
-    setShowImages(!showImages);
+  const [imageVisibility, setImageVisibility] = useState(Array(writings.length).fill(false));
+
+  const toggleImage = (index) => {
+    const newVisibility = [...imageVisibility];
+    newVisibility[index] = !newVisibility[index];
+    setImageVisibility(newVisibility);
   };
 
   return (
@@ -45,14 +47,12 @@ function HandwritingStats({ data }) {
           Date:
           <strong>{date}</strong>
         </Text>
-        <Button onClick={toggleImages}>{showImages ? 'Hide Writings' : 'Show Writings'}</Button>
-        {showImages && (
-          <VStack spacing={2} align="start">
-            {writings.map((writing, index) => (
-              <Image key={index} src={writing} alt={`Writing ${index}`} />
-            ))}
-          </VStack>
-        )}
+        {writings.map((writing, index) => (
+          <div key={index}>
+            <Button onClick={() => toggleImage(index)}>{imageVisibility[index] ? 'Hide Image' : 'Show Image'}</Button>
+            {imageVisibility[index] && <Image src={writing} alt={`Writing ${index}`} />}
+          </div>
+        ))}
       </VStack>
     </Box>
   );
