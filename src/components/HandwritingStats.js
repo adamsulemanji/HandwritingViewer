@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text, VStack, useColorModeValue, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, useColorModeValue, Image, Button } from '@chakra-ui/react';
 
 function HandwritingStats({ data }) {
   const bgColor = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'white');
+
+  const [showImages, setShowImages] = useState(false);
 
   if (data.length === 0) {
     return (
@@ -16,6 +18,10 @@ function HandwritingStats({ data }) {
 
   const handwritingSession = data[0]; // Assuming data contains only one handwriting session
   const { file_path, date, number_of_strokes, time_taken, teacher, writings } = handwritingSession;
+
+  const toggleImages = () => {
+    setShowImages(!showImages);
+  };
 
   return (
     <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
@@ -39,12 +45,14 @@ function HandwritingStats({ data }) {
           Date:
           <strong>{date}</strong>
         </Text>
-        <Text>Writings:</Text>
-        <VStack spacing={2} align="start">
-          {writings.map((writing, index) => (
-            <Image key={index} src={writing} alt={`Writing ${index}`} />
-          ))}
-        </VStack>
+        <Button onClick={toggleImages}>{showImages ? 'Hide Writings' : 'Show Writings'}</Button>
+        {showImages && (
+          <VStack spacing={2} align="start">
+            {writings.map((writing, index) => (
+              <Image key={index} src={writing} alt={`Writing ${index}`} />
+            ))}
+          </VStack>
+        )}
       </VStack>
     </Box>
   );
