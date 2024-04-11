@@ -49,7 +49,9 @@ function HandwritingStats({ data }) {
         </Text>
         {writings.map((writing, index) => (
           <div key={index}>
-            <Button onClick={() => toggleImage(index)}>{imageVisibility[index] ? 'Hide Image' : 'Show Image'}</Button>
+            <Button onClick={() => toggleImage(index)}>
+              {writing} {imageVisibility[index] ? '(Hide)' : '(Show)'}
+            </Button>
             {imageVisibility[index] && <Image src={writing} alt={`Writing ${index}`} />}
           </div>
         ))}
