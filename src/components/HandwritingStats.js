@@ -1,8 +1,6 @@
-// HandwritingStats.jsx
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, useColorModeValue, Image } from '@chakra-ui/react';
 
 function HandwritingStats({ data }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -41,20 +39,10 @@ function HandwritingStats({ data }) {
           Date:
           <strong>{date}</strong>
         </Text>
-        <img src={file_path} alt="Student Headshot" style={{ maxWidth: '100%', borderRadius: '8px' }} />
-        <Text>Writing Points:</Text>
-        <VStack align="start" spacing={1} pl={4}>
-          {writings.map((stroke, index) => (
-            <Box key={index} bg="gray.200" p={2} borderRadius="md">
-              <Text>Stroke {index + 1}:</Text>
-              <VStack align="start" spacing={1} pl={2}>
-                {stroke.map((point, pointIndex) => (
-                  <Text key={pointIndex}>
-                    x: {point.x}, y: {point.y}, t: {point.t}
-                  </Text>
-                ))}
-              </VStack>
-            </Box>
+        <Text>Writings:</Text>
+        <VStack spacing={2} align="start">
+          {writings.map((writing, index) => (
+            <Image key={index} src={writing} alt={`Writing ${index}`} />
           ))}
         </VStack>
       </VStack>
@@ -63,20 +51,7 @@ function HandwritingStats({ data }) {
 }
 
 HandwritingStats.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      file_path: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      number_of_strokes: PropTypes.number.isRequired,
-      time_taken: PropTypes.string.isRequired,
-      teacher: PropTypes.string.isRequired,
-      writings: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired,
-        t: PropTypes.number.isRequired,
-      }))).isRequired,
-    }),
-  ).isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default HandwritingStats;
