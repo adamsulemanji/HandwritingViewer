@@ -7,9 +7,9 @@ import StudentList from './components/StudentList';
 import './App.css';
 
 function App() {
-  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedStudent, setSelectedStudent] = useState(Data[0] || null);
   const [currObjIdx, setcurrObjIdx] = useState(0);
-  const [imagePath, setImagePath] = useState('');
+  const [imagePath, setImagePath] = useState(Data[0].objects[0].file_path || '');
 
   const updateImagePath = (path) => {
     try {
@@ -28,6 +28,7 @@ function App() {
   const goToPrevLetter = () => {
     setcurrObjIdx((prevIndex) => {
       const newIndex = Math.max(prevIndex - 1, 0);
+      console.log((newIndex));
       updateImagePath(selectedStudent.objects[newIndex].file_path);
       return newIndex;
     });
@@ -46,10 +47,10 @@ function App() {
   return (
     <ChakraProvider>
       <div className="flex flex-row p-5 text-center h-screen">
-        <div className="flex-none w-1/4 mr-4 bg-teal-100 h-full rounded-md overflow-hidden">
+        <div className="flex-none w-1/4 mr-4 bg-teal-100 h-full rounded-md overflow-y-auto">
           <StudentList students={Data} onStudentSelect={handleStudentSelect} />
         </div>
-        <div className="flex-grow flex flex-col items-center bg-teal-100 h-full rounded-md overflow-hidden min-w-0">
+        <div className="flex-grow flex flex-col items-center bg-teal-100 h-full rounded-md overflow-y-auto min-w-0">
           <Heading as="h1" textAlign="center" mb="4">
             Student Handwriting Viewer
           </Heading>
@@ -64,7 +65,7 @@ function App() {
             goToNextLetter={goToNextLetter}
           />
         </div>
-        <div className="flex-none w-1/4 ml-4 bg-teal-100 h-full rounded-md overflow-hidden">
+        <div className="flex-none w-1/4 ml-4 bg-teal-100 h-full rounded-md overflow-y-auto">
           <HandwritingStats data={selectedStudent ? [selectedStudent.objects[currObjIdx]] : []} />
         </div>
       </div>
