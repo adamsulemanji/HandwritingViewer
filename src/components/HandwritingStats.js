@@ -15,7 +15,7 @@ function HandwritingStats({ data }) {
   }
 
   const handwritingSession = data[0]; // Assuming data contains only one handwriting session
-  const { file_path, date, number_of_strokes, time_taken, teacher, writings } = handwritingSession;
+  const { filePath, date, numStrokes, timeTake, teacher, writings } = handwritingSession;
 
   const [imageVisibility, setImageVisibility] = useState(Array(writings.length).fill(false));
 
@@ -25,6 +25,8 @@ function HandwritingStats({ data }) {
     setImageVisibility(newVisibility);
   };
 
+  console.log('HandwritingStats File Path', filePath);
+
   return (
     <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
       <Heading fontSize="xl" mb={4}>
@@ -33,11 +35,11 @@ function HandwritingStats({ data }) {
       <VStack align="start" spacing={3}>
         <Text>
           Number of strokes:
-          <strong>{number_of_strokes}</strong>
+          <strong>{numStrokes}</strong>
         </Text>
         <Text>
           Time taken:
-          <strong>{time_taken}</strong>
+          <strong>{timeTake}</strong>
         </Text>
         <Text>
           Teacher:
@@ -48,7 +50,7 @@ function HandwritingStats({ data }) {
           <strong>{date}</strong>
         </Text>
         {writings.map((writing, index) => (
-          <div key={index}>
+          <div key={`Writing ${writing}`}>
             <Button onClick={() => toggleImage(index)}>
               {writing} {imageVisibility[index] ? '(Hide)' : '(Show)'}
             </Button>
@@ -61,7 +63,7 @@ function HandwritingStats({ data }) {
 }
 
 HandwritingStats.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default HandwritingStats;
