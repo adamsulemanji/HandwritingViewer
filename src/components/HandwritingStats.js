@@ -28,7 +28,7 @@ function HandwritingStats({ data }) {
   console.log('HandwritingStats File Path', filePath);
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
+    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={1} bg={bgColor} color={textColor}>
       <Heading fontSize="xl" mb={4}>
         Handwriting Stats
       </Heading>
