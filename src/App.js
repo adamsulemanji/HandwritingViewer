@@ -5,6 +5,9 @@ import HandwritingViewer from './components/HandwritingViewer';
 import HandwritingList from './components/HandwritingList';
 import StudentList from './components/StudentList';
 import StudentViewer from './components/StudentViewer';
+import StudentNotes from './components/StudentNotes';
+import ClassData from './components/ClassData';
+import Labels from './components/Labels';
 import './App.css';
 
 function App() {
@@ -49,10 +52,10 @@ function App() {
           </div>
 
           <div className="flex-grow rounded-md overflow-hidden">
-            <div className="h-1/3 p-2 bg-yellow-200 flex flex-col justify-center items-center">
+            <div className="h-1/3 p-2 bg-yellow-200 justify-center items-center">
               <StudentViewer filePath={imagePath} />
             </div>
-            <div className="h-2/3 p-2 bg-orange-200 flex flex-col justify-start items-center">
+            <div className="h-2/3 p-2 bg-orange-200 justify-start items-center">
               <HandwritingList
                 data={Student ? [Student.objects[currObjIdx]] : []}
                 onObjectSelect={handleChangeObject}
@@ -65,13 +68,19 @@ function App() {
             <div className="h-1/2 p-2 bg-purple-200">
               <HandwritingViewer filePath={handwritingPath} />
             </div>
-            <div className="h-1/2 p-2 bg-blue-200">Notes and Stats</div>
+            <div className="h-1/2 p-2 bg-blue-200">
+              <StudentNotes filePath={handwritingPath} />
+            </div>
           </div>
 
           {/* Labels and Stats */}
           <div className="flex-none w-1/4 bg-teal-100 h-full rounded-md overflow-hidden">
-            <div className="h-1/2 p-2 bg-red-200">Labels and create new labels</div>
-            <div className="h-1/2 p-2 bg-green-200">Comparison of all students</div>
+            <div className="h-1/2 p-2 bg-red-200">
+              <Labels data={Student ? [Student.objects[currObjIdx]] : []} />
+            </div>
+            <div className="h-1/2 p-2 bg-green-200">
+              <ClassData data={Data} />
+            </div>
           </div>
         </div>
       </div>

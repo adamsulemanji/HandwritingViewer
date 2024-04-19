@@ -6,6 +6,17 @@ function HandwritingStats({ data, onObjectSelect }) {
   const bgColor = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'white');
 
+  function formatFileName(filePath) {
+    const baseName = filePath.split('/').pop().replace('.json', '');
+    const noUnderscores = baseName.replace(/_/g, ' ');
+    const capitalized = noUnderscores
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+    return capitalized;
+  }
+
   if (typeof data === 'undefined' || data.length === 0) {
     return (
       <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
@@ -17,14 +28,14 @@ function HandwritingStats({ data, onObjectSelect }) {
   const writingPaths = data[0].writings;
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={1} bg={bgColor} color={textColor}>
+    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
       <Heading fontSize="xl" mb={4}>
         Handwriting Stats
       </Heading>
       <VStack align="start" spacing={3}>
         {writingPaths.map((path, idx) => (
           <Button key={`${path}}`} onClick={() => onObjectSelect(idx)}>
-            {path}
+            {formatFileName(path)}
           </Button>
         ))}
       </VStack>

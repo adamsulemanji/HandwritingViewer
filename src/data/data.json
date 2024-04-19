@@ -11,12 +11,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": [
-          "./images/circle_0.png",
-          "./images/square_0.png",
-          "./images/triangle_0.png",
-          "./images/dummy triangle.png"
-        ]
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
       }
     ]
   },
@@ -33,12 +28,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": [
-          "./images/circle_0.png",
-          "./images/square_0.png",
-          "./images/triangle_0.png",
-          "./images/dummy triangle.png"
-        ]
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
       }
     ]
   },
@@ -54,12 +44,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": [
-          "./images/circle_0.png",
-          "./images/square_0.png",
-          "./images/triangle_0.png",
-          "./images/dummy triangle.png"
-        ]
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
       }
     ]
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Box, useColorModeValue } from '@chakra-ui/react';
+import { Image, Box, useColorModeValue, Heading } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 function StudentViewer({ filePath }) {
@@ -16,6 +16,9 @@ function StudentViewer({ filePath }) {
 
   return (
     <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
+      <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
+        Student Picture
+      </Heading>
       <Box
         className="border-5 border-gray-300 rounded-xl bg-slate-200"
         display="flex"
