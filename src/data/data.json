@@ -1,285 +1,51 @@
 [
-    {
-        "name": "Student 1",
-        "age": 19,
-        "grade": "1",
-        "objects": [
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2",
-                "Caption": "Headshot of student 1"
-            },
-            {
-                "file_path": "./images/teach.jpeg",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3",
-                "Caption": "Teaching image"
-            },
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1",
-                "Caption": "Headshot of student 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 2",
-        "age": 20,
-        "grade": "C",
-        "objects": [
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "./images/moonlight.png",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 3",
-        "age": 21,
-        "grade": "A",
-        "objects": [
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "./images/teach.jpeg",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "./images/headshot.png",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 4",
-        "age": 22,
-        "grade": "B",
-        "objects": [
-            {
-                "file_path": "/data/student_4/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_4/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_4/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 5",
-        "age": 18,
-        "grade": "C",
-        "objects": [
-            {
-                "file_path": "/data/student_5/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_5/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_5/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 6",
-        "age": 19,
-        "grade": "A",
-        "objects": [
-            {
-                "file_path": "/data/student_6/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_6/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_6/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 7",
-        "age": 20,
-        "grade": "B",
-        "objects": [
-            {
-                "file_path": "/data/student_7/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_7/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_7/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 8",
-        "age": 21,
-        "grade": "C",
-        "objects": [
-            {
-                "file_path": "/data/student_8/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_8/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_8/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 9",
-        "age": 22,
-        "grade": "A",
-        "objects": [
-            {
-                "file_path": "/data/student_9/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_9/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_9/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    },
-    {
-        "name": "Student 10",
-        "age": 18,
-        "grade": "B",
-        "objects": [
-            {
-                "file_path": "/data/student_10/object_1.txt",
-                "date": "2024-04-02",
-                "number_of_strokes": 110,
-                "time_taken": "3 minutes",
-                "teacher": "Teacher 2"
-            },
-            {
-                "file_path": "/data/student_10/object_2.txt",
-                "date": "2024-04-03",
-                "number_of_strokes": 120,
-                "time_taken": "4 minutes",
-                "teacher": "Teacher 3"
-            },
-            {
-                "file_path": "/data/student_10/object_3.txt",
-                "date": "2024-04-04",
-                "number_of_strokes": 130,
-                "time_taken": "5 minutes",
-                "teacher": "Teacher 1"
-            }
-        ]
-    }
+  {
+    "name": "Student 1",
+    "age": 19,
+    "grade": "1",
+    "objects": [
+      {
+        "file_path": "./images/headshot.png",
+        "date": "2024-04-02",
+        "number_of_strokes": 123123,
+        "time_taken": "3 minutes",
+        "teacher": "Teacher 2",
+        "Caption": "Headshot of student 1",
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+      }
+    ]
+  },
+
+  {
+    "name": "Student 2",
+    "age": 29,
+    "grade": "1",
+    "objects": [
+      {
+        "file_path": "./images/moonlight.png",
+        "date": "2024-04-02",
+        "number_of_strokes": 123123,
+        "time_taken": "3 minutes",
+        "teacher": "Teacher 2",
+        "Caption": "Headshot of student 1",
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+      }
+    ]
+  },
+  {
+    "name": "Student 3",
+    "age": 29,
+    "grade": "1",
+    "objects": [
+      {
+        "file_path": "./images/headshot.png",
+        "date": "2024-04-02",
+        "number_of_strokes": 123123,
+        "time_taken": "3 minutes",
+        "teacher": "Teacher 2",
+        "Caption": "Headshot of student 1",
+        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+      }
+    ]
+  }
 ]
