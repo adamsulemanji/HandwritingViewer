@@ -11,7 +11,12 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./images/circle_0.png", "./images/square_0.png", "./images/triangle_0.png"]
+        "writings": [
+          "./images/circle_0.png",
+          "./images/square_0.png",
+          "./images/triangle_0.png",
+          "./images/dummy triangle.png"
+        ]
       }
     ]
   },
@@ -22,7 +27,7 @@
     "grade": "1",
     "objects": [
       {
-        "file_path": "./images/headshot.png",
+        "file_path": "./images/moonlight.png",
         "date": "2024-04-02",
         "number_of_strokes": 123123,
         "time_taken": "3 minutes",
