@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import { ChakraProvider, Heading } from '@chakra-ui/react';
 import Data from './data/data.json';
 import HandwritingViewer from './components/HandwritingViewer';
-import HandwritingStats from './components/HandwritingStats';
+import HandwritingList from './components/HandwritingList';
 import StudentList from './components/StudentList';
+import StudentViewer from './components/StudentViewer';
+import StudentNotes from './components/StudentNotes';
+import ClassData from './components/ClassData';
+import Labels from './components/Labels';
 import './App.css';
 
 function App() {
-  const [selectedStudent, setSelectedStudent] = useState(Data[0] || null);
+  const [Student, setStudent] = useState(null);
   const [currObjIdx, setcurrObjIdx] = useState(0);
-  const [imagePath, setImagePath] = useState(Data[0].objects[0].file_path || '');
+  const [imagePath, setImagePath] = useState('');
+  const [handwritingPath, setHandwritingPath] = useState('');
+  const [currHandwritingIdx, setCurrHandwritingIdx] = useState(0);
 
   const updateImagePath = (path) => {
     try {
@@ -20,53 +26,62 @@ function App() {
   };
 
   const handleStudentSelect = (student) => {
-    setSelectedStudent(student);
+    setStudent(student);
     setcurrObjIdx(0);
     updateImagePath(student.objects[0].file_path);
+    setHandwritingPath(student.objects[0].writings[0]);
   };
 
-  const goToPrevLetter = () => {
-    setcurrObjIdx((prevIndex) => {
-      const newIndex = Math.max(prevIndex - 1, 0);
-      console.log((newIndex));
-      updateImagePath(selectedStudent.objects[newIndex].file_path);
-      return newIndex;
-    });
-  };
+  const handleChangeObject = (index) => {
+    setCurrHandwritingIdx(index);
+    setHandwritingPath(Student.objects[currObjIdx].writings[index]);
 
-  const goToNextLetter = () => {
-    if (selectedStudent && currObjIdx < selectedStudent.objects.length - 1) {
-      setcurrObjIdx((prevIndex) => {
-        const newIndex = prevIndex + 1;
-        updateImagePath(selectedStudent.objects[newIndex].file_path);
-        return newIndex;
-      });
-    }
+    console.log(currHandwritingIdx);
   };
 
   return (
     <ChakraProvider>
-      <div className="flex flex-row p-5 text-center h-screen">
-        <div className="flex-none w-1/4 mr-4 bg-teal-100 h-full rounded-md overflow-y-auto">
-          <StudentList students={Data} onStudentSelect={handleStudentSelect} />
-        </div>
-        <div className="flex-grow flex flex-col items-center bg-teal-100 h-full rounded-md overflow-y-auto min-w-0">
-          <Heading as="h1" textAlign="center" mb="4">
-            Student Handwriting Viewer
-          </Heading>
-          <p className="mb-2">
-            Current Viewing:
-            {selectedStudent ? selectedStudent.name : 'None'}
-          </p>
-          <HandwritingViewer
-            imageUrl={imagePath}
-            caption={`Object ${currObjIdx + 1}`}
-            goToPreviousLetter={goToPrevLetter}
-            goToNextLetter={goToNextLetter}
-          />
-        </div>
-        <div className="flex-none w-1/4 ml-4 bg-teal-100 h-full rounded-md overflow-y-auto">
-          <HandwritingStats data={selectedStudent ? [selectedStudent.objects[currObjIdx]] : []} />
+      <div className="flex flex-col text-center h-screen">
+        <Heading as="h1" textAlign="center" mb="4">
+          Student Handwriting Viewer
+        </Heading>
+        <div className="flex-grow flex">
+          {/* Student List */}
+          <div className="flex-none w-1/4 bg-indigo-200 h-full rounded-md overflow-hidden">
+            <StudentList students={Data} onStudentSelect={handleStudentSelect} />
+          </div>
+
+          <div className="flex-grow rounded-md overflow-hidden">
+            <div className="h-1/3 p-2 bg-yellow-200 justify-center items-center">
+              <StudentViewer filePath={imagePath} />
+            </div>
+            <div className="h-2/3 p-2 bg-orange-200 justify-start items-center">
+              <HandwritingList
+                data={Student ? [Student.objects[currObjIdx]] : []}
+                onObjectSelect={handleChangeObject}
+              />
+            </div>
+          </div>
+
+          {/* Main Content Area */}
+          <div className="flex-grow rounded-md overflow-hidden">
+            <div className="h-1/2 p-2 bg-purple-200">
+              <HandwritingViewer filePath={handwritingPath} />
+            </div>
+            <div className="h-1/2 p-2 bg-blue-200">
+              <StudentNotes filePath={handwritingPath} />
+            </div>
+          </div>
+
+          {/* Labels and Stats */}
+          <div className="flex-none w-1/4 bg-teal-100 h-full rounded-md overflow-hidden">
+            <div className="h-1/2 p-2 bg-red-200">
+              <Labels data={Student ? [Student.objects[currObjIdx]] : []} />
+            </div>
+            <div className="h-1/2 p-2 bg-green-200">
+              <ClassData data={Data} />
+            </div>
+          </div>
         </div>
       </div>
     </ChakraProvider>

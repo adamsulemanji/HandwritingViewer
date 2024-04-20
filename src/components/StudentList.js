@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, List, ListItem, ListIcon, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box, List, ListItem, ListIcon, Heading, useColorModeValue,
+} from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
 function StudentList({ students, onStudentSelect }) {

@@ -1,42 +1,69 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Image, Box, Button, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 
-function HandwritingViewer({ imageUrl, caption, goToPreviousLetter, goToNextLetter }) {
+function HandwritingViewer({ filePath }) {
   const bgColor = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'white');
+  const [fileData, setFileData] = useState(null);
+  const canvasRef = useRef(null);
+
+  const draw = (data) => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    const colors = ['red', 'green', 'blue', 'purple'];
+    let colorIndex = 0;
+
+    data.forEach((stroke) => {
+      context.beginPath();
+      context.moveTo(stroke[0].x, stroke[0].y);
+      stroke.forEach((point) => {
+        context.lineTo(point.x, point.y);
+      });
+      context.strokeStyle = colors[colorIndex % colors.length];
+      context.lineWidth = 3;
+      context.stroke();
+      context.closePath();
+      colorIndex += 1;
+    });
+  };
+
+  useEffect(() => {
+    if (filePath && filePath.length > 0) {
+      fetch(filePath)
+        .then((response) => response.json())
+        .then((data) => {
+          setFileData(data);
+          draw(data);
+        })
+        .catch((error) => console.error('Error loading the file:', error));
+    }
+  }, [filePath]);
+
+  console.log(fileData);
+
+  if (!filePath || filePath.length === 0) {
+    return (
+      <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4" textAlign="center">
+        No data available
+      </Box>
+    );
+  }
 
   return (
     <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4" textAlign="center">
-      <Box className="m-10 p-10 border-2 border-gray-300 rounded-xl">
-        <Image src={imageUrl} alt="Handwriting" />
-      </Box>
-      <Text mb="4">{caption}</Text>
-      <div className="m-4 flex justify-center">
-        <div className="flex justify-center">
-          <Button
-            className="mr-8 px-4 py-2 bg-teal-200 text-white rounded-md hover:bg-teal-400"
-            onClick={goToPreviousLetter}
-          >
-            Previous
-          </Button>
-          <Button
-            className="ml-8 px-4 py-2 bg-teal-200 text-white rounded-md hover:bg-teal-400"
-            onClick={goToNextLetter}
-          >
-            Next
-          </Button>
-        </div>
-      </div>
+      <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
+        Handwriting Viewer
+      </Heading>
+      <canvas ref={canvasRef} width={400} height={500} style={{ border: '2px solid gray', borderRadius: '10px' }} />
     </Box>
   );
 }
 
 HandwritingViewer.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  caption: PropTypes.string.isRequired,
-  goToPreviousLetter: PropTypes.func.isRequired,
-  goToNextLetter: PropTypes.func.isRequired,
+  filePath: PropTypes.string.isRequired,
 };
 
 export default HandwritingViewer;
