@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import '../block.css';
 
 function HandwritingViewer({ filePath }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -56,29 +57,21 @@ function HandwritingViewer({ filePath }) {
   }
 
   return (
-    <Box
-      boxShadow="base"
-      p="5"
-      bg={bgColor}
-      color={textColor}
-      borderRadius="lg"
-      m="4"
-      textAlign="center"
-      overflow="hidden"
-      mx="auto"
-    >
-      <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
+    <Box className="box">
+      <Heading class="title">
         Handwriting Viewer
       </Heading>
-      <canvas
-        ref={canvasRef}
-        style={{
-          width: '100%', // Set width to 100%
-          border: '2px solid gray',
-          borderRadius: '10px',
-          overflow: 'hidden',
-        }}
-      />
+      <div className="block">
+        <canvas
+          ref={canvasRef}
+          width={700}
+          height={400}
+          style={{
+            display: 'block', borderRadius: '10px', justifyContent: 'center', alignItems: 'center', overflow: 'auto',
+          }}
+        />
+      </div>
+
     </Box>
   );
 }

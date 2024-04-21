@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Textarea, useColorModeValue, Heading } from '@chakra-ui/react';
+import {
+  Box, Textarea, useColorModeValue, Heading,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import '../block.css';
 
 function StudentNotes({ filePath }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -8,15 +11,15 @@ function StudentNotes({ filePath }) {
 
   if (typeof filePath === 'undefined' || filePath.length === 0) {
     return (
-      <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4" textAlign="center">
+      <Box className="box">
         No data available
       </Box>
     );
   }
 
   return (
-    <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4">
-      <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
+    <Box className="box">
+      <Heading class="title">
         Student Notes
       </Heading>
       <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4" textAlign="center">

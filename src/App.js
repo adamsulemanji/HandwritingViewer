@@ -42,43 +42,46 @@ function App() {
   return (
     <ChakraProvider>
       <div className="flex flex-col text-center h-screen">
-        <Heading as="h1" textAlign="center" mb="4">
+        <Heading as="h1" textAlign="center" mb="4" class="header">
           Student Handwriting Viewer
         </Heading>
         <div className="flex-grow flex">
           {/* Student List */}
-          <div className="flex-none w-1/4 bg-indigo-200 h-full rounded-md overflow-hidden">
+          <div className="card">
             <StudentList students={Data} onStudentSelect={handleStudentSelect} />
           </div>
-
           <div className="flex-grow rounded-md overflow-hidden">
-            <div className="h-1/3 p-2 bg-yellow-200 justify-center items-center">
-              <StudentViewer filePath={imagePath} />
+            <div className="halfCard" style={{ backgroundColor: '#fefcbf' }}>
+              <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+                <StudentViewer filePath={imagePath} className="student-viewer-img" />
+              </div>
             </div>
-            <div className="h-2/3 p-2 bg-orange-200 justify-start items-center">
-              <HandwritingList
-                data={Student ? [Student.objects[currObjIdx]] : []}
-                onObjectSelect={handleChangeObject}
-              />
+            <div className="halfCard" style={{ backgroundColor: '#fed7aa' }}>
+              <div style={{ width: '100%', height: '100%', overflow: 'auto' }}>
+                <HandwritingList
+                  data={Student ? [Student.objects[currObjIdx]] : []}
+                  onObjectSelect={handleChangeObject}
+                />
+              </div>
             </div>
           </div>
 
           {/* Main Content Area */}
-          <div className="flex-grow rounded-md overflow-hidden">
-            <div className="h-1/2 p-2 bg-purple-200">
+          <div className="w-1/4 flex-grow rounded-md overflow-hidden">
+            <div className="viewerCard" style={{ backgroundColor: 'rgb(233 213 255)' }}>
               <HandwritingViewer filePath={handwritingPath} />
             </div>
-            <div className="h-1/2 p-2 bg-blue-200">
+            <div className="oneThirdCard" style={{ backgroundColor: '#bfdbfe' }}>
               <StudentNotes filePath={handwritingPath} />
             </div>
           </div>
 
           {/* Labels and Stats */}
-          <div className="flex-none w-1/4 bg-teal-100 h-full rounded-md overflow-hidden">
-            <div className="h-1/2 p-2 bg-red-200">
+          <div className="flex-none w-1/4 h-full rounded-md overflow-hidden">
+            <div className="halfCard" style={{ backgroundColor: '#fed7d7' }}>
               <Labels data={Student ? [Student.objects[currObjIdx]] : []} />
             </div>
-            <div className="h-1/2 p-2 bg-green-200">
+            <div className="halfCard" style={{ backgroundColor: '#e6fffa' }}>
               <ClassData data={Data} />
             </div>
           </div>
@@ -87,5 +90,4 @@ function App() {
     </ChakraProvider>
   );
 }
-
 export default App;

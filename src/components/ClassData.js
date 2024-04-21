@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import '../block.css';
 
 function ClassData({ data }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -14,8 +15,8 @@ function ClassData({ data }) {
     );
   }
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
-      <Heading>Class Data</Heading>
+    <Box className="box">
+      <Heading class="title">Class Data</Heading>
       <Box>Class Data goes here !</Box>
     </Box>
   );

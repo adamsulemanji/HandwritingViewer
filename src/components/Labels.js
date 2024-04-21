@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Heading, useColorModeValue, Button, Text, VStack } from '@chakra-ui/react';
+import {
+  Box, Heading, useColorModeValue, Button, Text, VStack,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import '../block.css';
 
 function Labels({ data }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -19,15 +22,16 @@ function Labels({ data }) {
   }
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
-      <Heading fontSize="xl" mb={4}>
+    <Box className="box">
+      <Heading class="title">
         Labels
       </Heading>
       <VStack align="start" spacing={3}>
-        <Button colorScheme="blue">Label 1</Button>
-        <Button colorScheme="green">Label 2</Button>
-        <Button colorScheme="purple">Label 3</Button>
-        <Button colorScheme="teal" onClick={handlelog}>
+        <Button class="button-54" role="button">Label 1</Button>
+        <Button class="button-54" role="button">Label 2</Button>
+        <Button class="button-54" role="button">Label 3</Button>
+        <Button class="button-54" role="button">Label 4</Button>
+        <Button class="button-54" role="button" onClick={handlelog}>
           Create new Label
         </Button>
       </VStack>
