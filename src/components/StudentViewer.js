@@ -29,6 +29,9 @@ function StudentViewer({ filePath }) {
         justifyContent="center"
         maxW="300px"
         maxH="300px"
+        overflow="hidden"
+        // center the image
+        mx="auto"
       >
         <Image src={filePath} alt="Handwriting" width="100%" height="auto" objectFit="contain" />
       </Box>

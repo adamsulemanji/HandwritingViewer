@@ -13,6 +13,9 @@ function HandwritingViewer({ filePath }) {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
+    canvas.width = canvas.offsetWidth; // Adjust width based on the offset width of the element
+    canvas.height = 500; // Fixed height
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
@@ -68,6 +71,7 @@ function HandwritingViewer({ filePath }) {
           }}
         />
       </div>
+
     </Box>
   );
 }
