@@ -3,6 +3,7 @@ import {
   Image, Box, useColorModeValue, Heading,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import '../block.css';
 
 function StudentViewer({ filePath }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -17,8 +18,8 @@ function StudentViewer({ filePath }) {
   }
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
-      <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
+    <Box className="box">
+      <Heading class="title">
         Student Picture
       </Heading>
       <Box

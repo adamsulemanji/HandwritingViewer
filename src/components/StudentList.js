@@ -4,14 +4,15 @@ import {
   Box, List, ListItem, ListIcon, Heading, useColorModeValue,
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import '../block.css';
 
 function StudentList({ students, onStudentSelect }) {
   const hoverBgColor = useColorModeValue('gray.200', 'gray.700');
   const textColor = useColorModeValue('gray.800', 'gray.200');
 
   return (
-    <Box borderRadius="md" overflow="hidden" boxShadow="base" p="5" m="4" bg={useColorModeValue('white', 'gray.800')}>
-      <Heading fontSize="xl" textAlign="center" mb="4">
+    <Box className="box">
+      <Heading class="title">
         Student List
       </Heading>
       <List spacing={3}>

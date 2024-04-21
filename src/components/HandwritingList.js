@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Box, Heading, Text, VStack, useColorModeValue, Button,
 } from '@chakra-ui/react';
+import '../block.css';
 
 function HandwritingStats({ data, onObjectSelect }) {
   const bgColor = useColorModeValue('white', 'gray.800');
@@ -30,13 +31,13 @@ function HandwritingStats({ data, onObjectSelect }) {
   const writingPaths = data[0].writings;
 
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" m={5} bg={bgColor} color={textColor}>
-      <Heading fontSize="xl" mb={4}>
+    <Box className="box">
+      <Heading class="title">
         Handwriting Stats
       </Heading>
       <VStack align="start" spacing={3}>
         {writingPaths.map((path, idx) => (
-          <Button key={`${path}}`} onClick={() => onObjectSelect(idx)}>
+          <Button key={`${path}}`} onClick={() => onObjectSelect(idx)} class="button-53" role="button">
             {formatFileName(path)}
           </Button>
         ))}
