@@ -12,6 +12,9 @@ function HandwritingViewer({ filePath }) {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
+    canvas.width = canvas.offsetWidth; // Adjust width based on the offset width of the element
+    canvas.height = 500; // Fixed height
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
@@ -53,11 +56,29 @@ function HandwritingViewer({ filePath }) {
   }
 
   return (
-    <Box boxShadow="base" p="5" bg={bgColor} color={textColor} borderRadius="lg" m="4" textAlign="center">
+    <Box
+      boxShadow="base"
+      p="5"
+      bg={bgColor}
+      color={textColor}
+      borderRadius="lg"
+      m="4"
+      textAlign="center"
+      overflow="hidden"
+      mx="auto"
+    >
       <Heading fontSize="xl" size="lg" textAlign="center" mb="4">
         Handwriting Viewer
       </Heading>
-      <canvas ref={canvasRef} width={400} height={500} style={{ border: '2px solid gray', borderRadius: '10px' }} />
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: '100%', // Set width to 100%
+          border: '2px solid gray',
+          borderRadius: '10px',
+          overflow: 'hidden',
+        }}
+      />
     </Box>
   );
 }
