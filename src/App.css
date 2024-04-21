@@ -24,9 +24,8 @@ h1 {
   padding-top: 30px;
   font-size: 40px;
   font-family: cursive;
-  color: #FFFDD0;
+  color: #fffdd0;
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -56,14 +55,14 @@ h1 {
   text-align: center;
   flex: none;
   width: 25%;
-  background-color: #c3dafe;  /* Approximation of Tailwind's indigo-200 */
+  background-color: #c3dafe; /* Approximation of Tailwind's indigo-200 */
   height: 100%;
   border-radius: 1.5rem; /* Typically rounded-md is about 6px, adjust as needed */
   overflow: auto;
   border: 15px solid white; /* Adding a white border */
 }
 
-.halfCard{
+.halfCard {
   height: 50%; /* Sets height to 50% of the parent container */
   padding: 0.5rem; /* Sets padding around the element */
   display: flex; /* Necessary to enable justify-content and align-items */
@@ -74,7 +73,7 @@ h1 {
   border: 10px solid white; /* Adding a white border */
 }
 
-.viewerCard{
+.viewerCard {
   height: 70%; /* Sets height to 50% of the parent container */
   padding: 0.5rem; /* Sets padding around the element */
   display: flex; /* Necessary to enable justify-content and align-items */
@@ -85,7 +84,7 @@ h1 {
   border: 10px solid white; /* Adding a white border */
 }
 
-.oneThirdCard{
+.oneThirdCard {
   height: 30%; /* Sets height to 50% of the parent container */
   padding: 0.5rem; /* Sets padding around the element */
   display: flex; /* Necessary to enable justify-content and align-items */
@@ -106,9 +105,6 @@ h1 {
   display: flex;
   flex-grow: 1;
 } */
-
-
-
 
 /* 
 
