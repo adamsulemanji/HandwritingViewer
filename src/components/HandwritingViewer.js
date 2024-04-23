@@ -11,6 +11,8 @@ function HandwritingViewer({ filePath }) {
   const toast = useToast();
 
   const draw = (data) => {
+    console.log(data); // Log the data object to the console
+
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
@@ -21,7 +23,7 @@ function HandwritingViewer({ filePath }) {
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
 
-    data.forEach((stroke) => {
+    data['strokes'].forEach((stroke) => {
       context.beginPath();
       context.moveTo(stroke[0].x, stroke[0].y);
       stroke.forEach((point) => {
