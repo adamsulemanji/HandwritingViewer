@@ -11,7 +11,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+        "writings": ["./drawings/letter_c_label.json"]
       }
     ]
   },
@@ -28,7 +28,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+        "writings": ["./drawings/letter_c_label.json"]
       }
     ]
   },
@@ -44,7 +44,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
+        "writings": ["./drawings/letter_c_label.json"]
       }
     ]
   },
@@ -60,7 +60,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
+        "writings": ["./drawings/letter_c_label.json"]
       }
     ]
   },
@@ -76,7 +76,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
+        "writings": ["./drawings/letter_c_label.json"]
       }
     ]
   }
