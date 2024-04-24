@@ -21,7 +21,7 @@ function HandwritingViewer({ filePath }) {
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
 
-    data.forEach((stroke) => {
+    data['strokes'].forEach((stroke) => {
       context.beginPath();
       context.moveTo(stroke[0].x, stroke[0].y);
       stroke.forEach((point) => {
