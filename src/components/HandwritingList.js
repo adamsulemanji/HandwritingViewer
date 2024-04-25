@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, Text, VStack, useColorModeValue, Button } from '@chakra-ui/react';
+import {
+  Box, Heading, Text, VStack, useColorModeValue, Button,
+} from '@chakra-ui/react';
 import '../block.css';
 
 function HandwritingStats({ data, onObjectSelect }) {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, useColorModeValue, useToast } from '@chakra-ui/react';
+import {
+  Box, Heading, useColorModeValue, useToast,
+} from '@chakra-ui/react';
 import '../block.css';
 
 function HandwritingViewer({ filePath }) {
@@ -21,7 +23,7 @@ function HandwritingViewer({ filePath }) {
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
 
-    data['strokes'].forEach((stroke) => {
+    data.strokes.forEach((stroke) => {
       context.beginPath();
       context.moveTo(stroke[0].x, stroke[0].y);
       stroke.forEach((point) => {
@@ -43,15 +45,13 @@ function HandwritingViewer({ filePath }) {
           setFileData(data);
           draw(data);
         })
-        .catch((error) =>
-          toast({
-            title: 'Error loading handwriting data',
-            description: error.message,
-            status: 'error',
-            duration: 9000,
-            isClosable: true,
-          }),
-        );
+        .catch((error) => toast({
+          title: 'Error loading handwriting data',
+          description: error.message,
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        }));
     }
   }, [filePath]);
 
