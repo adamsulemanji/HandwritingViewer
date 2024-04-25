@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box, Heading, useColorModeValue, Select,
-} from '@chakra-ui/react';
+import { Box, Heading, useColorModeValue, Select } from '@chakra-ui/react';
 import '../block.css';
 import {
-  LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid,
-  ResponsiveContainer, Text, BarChart, Legend, Bar, Rectangle,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+  Text,
+  BarChart,
+  Legend,
+  Bar,
+  Rectangle,
 } from 'recharts';
 
 function formatFileName(filePath) {
@@ -75,10 +83,14 @@ function ClassData({ data }) {
   }
   return (
     <Box className="box">
-      <Heading class="title" color={textColor}>Class Data</Heading>
+      <Heading class="title" color={textColor}>
+        Class Data
+      </Heading>
       <Select onChange={handleSelectChange} placeholder="Select a sketch">
         {dataSet.map((entry, index) => (
-          <option key={entry.name} value={index}>{entry.name}</option>
+          <option key={entry.name} value={index}>
+            {entry.name}
+          </option>
         ))}
       </Select>
       <ResponsiveContainer width={300} height={300}>
@@ -110,10 +122,14 @@ function ClassData({ data }) {
   );
 }
 ClassData.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
-    objects: PropTypes.arrayOf(PropTypes.shape({
-      writings: PropTypes.arrayOf(PropTypes.string),
-    })),
-  })).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      objects: PropTypes.arrayOf(
+        PropTypes.shape({
+          writings: PropTypes.arrayOf(PropTypes.string),
+        }),
+      ),
+    }),
+  ).isRequired,
 };
 export default ClassData;
