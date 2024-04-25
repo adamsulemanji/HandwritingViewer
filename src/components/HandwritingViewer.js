@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, useColorModeValue, useToast } from '@chakra-ui/react';
 import '../block.css';
 
 function HandwritingViewer({ filePath }) {
@@ -8,6 +8,7 @@ function HandwritingViewer({ filePath }) {
   const textColor = useColorModeValue('gray.800', 'white');
   const [fileData, setFileData] = useState(null);
   const canvasRef = useRef(null);
+  const toast = useToast();
 
   const draw = (data) => {
     const canvas = canvasRef.current;
@@ -20,7 +21,7 @@ function HandwritingViewer({ filePath }) {
     const colors = ['red', 'green', 'blue', 'purple'];
     let colorIndex = 0;
 
-    data.forEach((stroke) => {
+    data['strokes'].forEach((stroke) => {
       context.beginPath();
       context.moveTo(stroke[0].x, stroke[0].y);
       stroke.forEach((point) => {
@@ -42,11 +43,17 @@ function HandwritingViewer({ filePath }) {
           setFileData(data);
           draw(data);
         })
-        .catch((error) => console.error('Error loading the file:', error));
+        .catch((error) =>
+          toast({
+            title: 'Error loading handwriting data',
+            description: error.message,
+            status: 'error',
+            duration: 9000,
+            isClosable: true,
+          }),
+        );
     }
   }, [filePath]);
-
-  console.log(fileData);
 
   if (!filePath || filePath.length === 0) {
     return (
@@ -58,20 +65,21 @@ function HandwritingViewer({ filePath }) {
 
   return (
     <Box className="box">
-      <Heading class="title">
-        Handwriting Viewer
-      </Heading>
+      <Heading class="title">Handwriting Viewer</Heading>
       <div className="block">
         <canvas
           ref={canvasRef}
           width={700}
           height={400}
           style={{
-            display: 'block', borderRadius: '10px', justifyContent: 'center', alignItems: 'center', overflow: 'auto',
+            display: 'block',
+            borderRadius: '10px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            overflow: 'auto',
           }}
         />
       </div>
-
     </Box>
   );
 }

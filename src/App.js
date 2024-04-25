@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChakraProvider, Heading } from '@chakra-ui/react';
+import { ChakraProvider, Heading, useToast } from '@chakra-ui/react';
 import Data from './data/data.json';
 import HandwritingViewer from './components/HandwritingViewer';
 import HandwritingList from './components/HandwritingList';
@@ -15,13 +15,21 @@ function App() {
   const [currObjIdx, setcurrObjIdx] = useState(0);
   const [imagePath, setImagePath] = useState('');
   const [handwritingPath, setHandwritingPath] = useState('');
+
   const [currHandwritingIdx, setCurrHandwritingIdx] = useState(0);
+  const toast = useToast();
 
   const updateImagePath = (path) => {
     try {
       setImagePath(path);
     } catch {
-      console.error('Failed to load image:', path);
+      toast({
+        title: 'Error loading image',
+        description: 'There was an error loading the image',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      });
     }
   };
 
@@ -30,13 +38,27 @@ function App() {
     setcurrObjIdx(0);
     updateImagePath(student.objects[0].file_path);
     setHandwritingPath(student.objects[0].writings[0]);
+
+    toast({
+      title: 'Student selected',
+      description: 'Student data loaded successfully',
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    });
   };
 
   const handleChangeObject = (index) => {
     setCurrHandwritingIdx(index);
     setHandwritingPath(Student.objects[currObjIdx].writings[index]);
 
-    console.log(currHandwritingIdx);
+    toast({
+      title: 'Handwriting changed',
+      description: 'Handwriting image changed successfully',
+      status: 'info',
+      duration: 9000,
+      isClosable: true,
+    });
   };
 
   return (

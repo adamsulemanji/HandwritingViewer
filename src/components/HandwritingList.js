@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box, Heading, Text, VStack, useColorModeValue, Button,
-} from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, useColorModeValue, Button } from '@chakra-ui/react';
 import '../block.css';
 
 function HandwritingStats({ data, onObjectSelect }) {
@@ -32,9 +30,7 @@ function HandwritingStats({ data, onObjectSelect }) {
 
   return (
     <Box className="box">
-      <Heading class="title">
-        Handwriting Stats
-      </Heading>
+      <Heading class="title">Handwriting Stats</Heading>
       <VStack align="start" spacing={3}>
         {writingPaths.map((path, idx) => (
           <Button key={`${path}}`} onClick={() => onObjectSelect(idx)} class="button-53" role="button">

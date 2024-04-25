@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box, List, ListItem, ListIcon, Heading, useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, List, ListItem, ListIcon, Heading, useColorModeValue } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import '../block.css';
 
@@ -12,9 +10,7 @@ function StudentList({ students, onStudentSelect }) {
 
   return (
     <Box className="box">
-      <Heading class="title">
-        Student List
-      </Heading>
+      <Heading class="title">Student List</Heading>
       <List spacing={3}>
         {students.map((student) => (
           <ListItem
