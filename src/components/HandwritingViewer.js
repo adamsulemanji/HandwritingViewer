@@ -69,8 +69,8 @@ function HandwritingViewer({ filePath }) {
       <div className="block">
         <canvas
           ref={canvasRef}
-          width={700}
-          height={400}
+          width={600}
+          height={600}
           style={{
             display: 'block',
             borderRadius: '10px',
