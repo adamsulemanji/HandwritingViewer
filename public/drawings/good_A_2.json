@@ -1,6 +1,12 @@
 {
     "score": 1,
     "label": "letter_A",
+    "total_strokes": 0.007333333333333295,
+    "total_points": 0.0986666666666667,
+    "average_points_per_stroke": 0.02599999999999992,
+    "drawing_duration": 0.24400000000000022,
+    "distance_first_to_last_point": 0.009999999999999926,
+    "convex_hull_to_bounding_rectangle_ratio": 0.134,
     "strokes": [
         [
             {
