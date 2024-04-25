@@ -27,7 +27,7 @@ function App() {
         title: 'Error loading image',
         description: 'There was an error loading the image',
         status: 'error',
-        duration: 9000,
+        duration: 1000,
         isClosable: true,
       });
     }
@@ -43,7 +43,7 @@ function App() {
       title: 'Student selected',
       description: 'Student data loaded successfully',
       status: 'success',
-      duration: 9000,
+      duration: 1000,
       isClosable: true,
     });
   };

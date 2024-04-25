@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Textarea, useColorModeValue, Heading } from '@chakra-ui/react';
+import {
+  Box, Textarea, useColorModeValue, Heading,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import '../block.css';
 

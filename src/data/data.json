@@ -11,7 +11,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+        "writings": ["./drawings/bad_A_9.json", "./drawings/good_A_7.json", "./drawings/good_A_10.json"]
       }
     ]
   },
@@ -28,7 +28,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/letter_a.json", "./drawings/letter_b.json", "./drawings/letter_c.json"]
+        "writings": ["./drawings/good_A_2.json"]
       }
     ]
   },
@@ -44,7 +44,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
+        "writings": ["./drawings/bad_A_2.json", "./drawings/bad_A_3.json"]
       }
     ]
   },
@@ -60,23 +60,7 @@
         "time_taken": "3 minutes",
         "teacher": "Teacher 2",
         "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
-      }
-    ]
-  },
-  {
-    "name": "Student 5",
-    "age": 29,
-    "grade": "1",
-    "objects": [
-      {
-        "file_path": "./images/headshot.png",
-        "date": "2024-04-02",
-        "number_of_strokes": 123123,
-        "time_taken": "3 minutes",
-        "teacher": "Teacher 2",
-        "Caption": "Headshot of student 1",
-        "writings": ["./drawings/square.json", "./drawings/triangle.json", "./drawings/circle.json"]
+        "writings": ["./drawings/good_A_8.json"]
       }
     ]
   }

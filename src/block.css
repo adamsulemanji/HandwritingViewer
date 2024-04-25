@@ -21,7 +21,7 @@
 .box {
   box-shadow: 0 4px 8px 0 teal;
   border-radius: 0.375rem; /* Medium border-radius */
-  overflow: hidden;
+  overflow: auto;
   padding: 1.25rem; /* Equivalent to '5' in many design systems */
   margin: 1rem; /* Equivalent to '4' */
   background-color: white; /* Default to light mode color */
